@@ -17,8 +17,8 @@ TRAIN_YOLO_TINY             = False
 TRAIN_SAVE_BEST_ONLY        = True # saves only best model according validation loss (True recommended)
 TRAIN_SAVE_CHECKPOINT       = False # saves all best validated checkpoints in training process (may require a lot disk space) (False recommended)
 
-TRAIN_CLASSES               = "wireframe1/train/_classes.txt"
-TRAIN_ANNOT_PATH            = "wireframe1/train/_annotations.txt"
+TRAIN_CLASSES               = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/train/_classes.txt"
+TRAIN_ANNOT_PATH            = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/train/_annotations.txt"
 TRAIN_LOGDIR                = "log"
 TRAIN_CHECKPOINTS_FOLDER    = "checkpoints"
 TRAIN_MODEL_NAME            = f"yolov3_custom"
@@ -34,7 +34,7 @@ TRAIN_WARMUP_EPOCHS         = 2
 TRAIN_EPOCHS                = 100
 
 # TEST options
-TEST_ANNOT_PATH             = "wireframe1/test/_annotations.txt"
+TEST_ANNOT_PATH             = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/test/_annotations.txt"
 TEST_BATCH_SIZE             = 4
 TEST_INPUT_SIZE             = 640
 TEST_DATA_AUG               = False
