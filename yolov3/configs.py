@@ -19,8 +19,8 @@ TRAIN_SAVE_CHECKPOINT       = False # saves all best validated checkpoints in tr
 
 TRAIN_CLASSES               = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/train/_classes.txt"
 TRAIN_ANNOT_PATH            = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/train/_annotations.txt"
-TRAIN_LOGDIR                = "log"
-TRAIN_CHECKPOINTS_FOLDER    = "checkpoints"
+TRAIN_LOGDIR                = "/content/UI-Detector-Model/log"
+TRAIN_CHECKPOINTS_FOLDER    = "/content/UI-Detector-Model/checkpoints"
 TRAIN_MODEL_NAME            = f"yolov3_custom"
 TRAIN_LOAD_IMAGES_TO_RAM    = True # With True faster training, but need more RAM
 TRAIN_BATCH_SIZE            = 4
