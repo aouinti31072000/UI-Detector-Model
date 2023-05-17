@@ -17,6 +17,50 @@ from evaluate_mAP import get_mAP
 Darknet_weights = YOLO_V3_TINY_WEIGHTS if TRAIN_YOLO_TINY else YOLO_V3_WEIGHTS
 if TRAIN_YOLO_TINY: TRAIN_MODEL_NAME += "_Tiny"
 
+    
+from sklearn.model_selection import RandomizedSearchCV
+
+def optimize_hyperparameters():
+    # Define the hyperparameter search space
+    hyperparameter_space = {
+        'learning_rate': [0.001, 0.01, 0.1],
+        'batch_size': [4, 5, 10, 15, 20, 25, 30],
+        'epochs': [100, 120, 130, 140, 150],
+    }
+
+    # Define the objective function
+    def objective_function(hyperparameters):
+        tf.keras.backend.clear_session()
+        # Modify the code to use the provided hyperparameters
+        train(learning_rate=hyperparameters['learning_rate'],
+              batch_size=hyperparameters['batch_size'],
+              epochs=hyperparameters['epochs'])
+        # Compute the performance metric you are interested in
+        performance = compute_performance_metric()
+        return performance
+
+    # Set up random search
+    random_search = RandomizedSearchCV(
+        estimator=None,  # Replace with your model or estimator
+        param_distributions=hyperparameter_space,
+        n_iter=10,  # Number of random configurations to try
+        scoring='accuracy',  # Replace with your desired metric
+        cv=5,  # Number of cross-validation folds
+        n_jobs=-1  # Number of parallel jobs (-1 uses all available cores)
+    )
+
+    # Perform random search
+    random_search.fit(X, y)  # Replace X and y with your training data
+
+    # Get the best hyperparameter configuration and its performance
+    best_hyperparameters = random_search.best_params_
+    best_performance = random_search.best_score_
+
+    # Print the results
+    print("Best Hyperparameters:", best_hyperparameters)
+    print("Best Performance:", best_performance)
+    
+    
 def main():
     global TRAIN_FROM_CHECKPOINT
     
@@ -59,6 +103,9 @@ def main():
                     print("skipping", yolo.layers[i].name)
     
     optimizer = tf.keras.optimizers.Adam()
+    
+    # Call the hyperparameter optimization function
+    optimize_hyperparameters()
 
 
     def train_step(image_data, target):
@@ -171,6 +218,6 @@ def main():
         get_mAP(mAP_model, testset, score_threshold=TEST_SCORE_THRESHOLD, iou_threshold=TEST_IOU_THRESHOLD)
     except UnboundLocalError:
         print("You don't have saved model weights to measure mAP, check TRAIN_SAVE_BEST_ONLY and TRAIN_SAVE_CHECKPOINT lines in configs.py")
-        
+    
 if __name__ == '__main__':
     main()
