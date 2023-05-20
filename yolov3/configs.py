@@ -35,7 +35,7 @@ TRAIN_EPOCHS                = 150
 
 # TEST options
 TEST_ANNOT_PATH             = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/test/_annotations.txt"
-TEST_BATCH_SIZE             = 30
+TEST_BATCH_SIZE             = 20
 TEST_INPUT_SIZE             = 640
 TEST_DATA_AUG               = False
 TEST_SCORE_THRESHOLD        = 0.3
