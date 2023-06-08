@@ -31,7 +31,7 @@ TRAIN_FROM_CHECKPOINT       = False # "checkpoints/yolov3_custom"
 TRAIN_LR_INIT               = 1e-4
 TRAIN_LR_END                = 1e-6
 TRAIN_WARMUP_EPOCHS         = 2
-TRAIN_EPOCHS                = 400
+TRAIN_EPOCHS                = 100
 
 # TEST options
 TEST_ANNOT_PATH             = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/test/_annotations.txt"
