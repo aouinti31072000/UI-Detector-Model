@@ -8,7 +8,7 @@ YOLO_STRIDES                = [8, 16, 32]
 YOLO_IOU_LOSS_THRESH        = 0.5
 YOLO_ANCHOR_PER_SCALE       = 3
 YOLO_MAX_BBOX_PER_SCALE     = 100
-YOLO_INPUT_SIZE             = 640
+YOLO_INPUT_SIZE             = 416
 YOLO_ANCHORS                = [[[49, 46], [123,  61], [127, 151]],
                                [[233, 161], [262, 268], [368, 283]],
                             [[438,  361], [471, 399], [521, 455]]]
@@ -24,7 +24,7 @@ TRAIN_CHECKPOINTS_FOLDER    = "/content/UI-Detector-Model/checkpoints"
 TRAIN_MODEL_NAME            = f"yolov3_custom"
 TRAIN_LOAD_IMAGES_TO_RAM    = True # With True faster training, but need more RAM
 TRAIN_BATCH_SIZE            = 20
-TRAIN_INPUT_SIZE            = 640
+TRAIN_INPUT_SIZE            = 416
 TRAIN_DATA_AUG              = True
 TRAIN_TRANSFER              = True
 TRAIN_FROM_CHECKPOINT       = False # "checkpoints/yolov3_custom"
@@ -36,7 +36,7 @@ TRAIN_EPOCHS                = 150
 # TEST options
 TEST_ANNOT_PATH             = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/test/_annotations.txt"
 TEST_BATCH_SIZE             = 20
-TEST_INPUT_SIZE             = 640
+TEST_INPUT_SIZE             = 416
 TEST_DATA_AUG               = False
 TEST_SCORE_THRESHOLD        = 0.3
 TEST_IOU_THRESHOLD          = 0.45
