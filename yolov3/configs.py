@@ -23,7 +23,7 @@ TRAIN_LOGDIR                = "/content/UI-Detector-Model/log"
 TRAIN_CHECKPOINTS_FOLDER    = "/content/UI-Detector-Model/checkpoints"
 TRAIN_MODEL_NAME            = f"yolov3_custom"
 TRAIN_LOAD_IMAGES_TO_RAM    = True # With True faster training, but need more RAM
-TRAIN_BATCH_SIZE            = 10
+TRAIN_BATCH_SIZE            = 4
 TRAIN_INPUT_SIZE            = 416
 TRAIN_DATA_AUG              = True
 TRAIN_TRANSFER              = True
@@ -31,11 +31,11 @@ TRAIN_FROM_CHECKPOINT       = False # "checkpoints/yolov3_custom"
 TRAIN_LR_INIT               = 1e-4
 TRAIN_LR_END                = 1e-6
 TRAIN_WARMUP_EPOCHS         = 2
-TRAIN_EPOCHS                = 200
+TRAIN_EPOCHS                = 400
 
 # TEST options
 TEST_ANNOT_PATH             = "/content/UI-Detector-Model/wireframe1/UI-Detector-3/test/_annotations.txt"
-TEST_BATCH_SIZE             = 10
+TEST_BATCH_SIZE             = 4
 TEST_INPUT_SIZE             = 416
 TEST_DATA_AUG               = False
 TEST_SCORE_THRESHOLD        = 0.3
